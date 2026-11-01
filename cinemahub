@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinemaHub — смотреть и скачивать классики кино бесплатно</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        /* Шапка сайта */
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Навигация */
+        .nav {
+            background: #34495e;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Основной контент */
+        .main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Стили для кнопок */
+        button {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        /* Стили для карточек фильмов */
+        .movie-card {
+            background: white;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        /* Стили для футера */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER SECTION -->
+    <div class="header">
+        <h1>CinemaHub</h1>
+    </div>
+
+    <!-- NAV SECTION -->
+    <div class="nav">
+        <a href="#catalog">Каталог🔥</a>
+        <a href="#new">Новинки★</a>
+        <a href="#favorites">Избранное</a>
+        <a href="#history">История</a>
+    </div>
+
+    <!-- MAIN SECTION -->
+    <div class="main">
+        <h2>Фильмы доступны для просмотра</h2>
+        <p>Полностью легально · общественное достояние</p>
+
+        <!-- Каталог жанров -->
+        <div class="genres">
+            <button>Все жанры</button>
+            <button>Драма</button>
+            <button>Комедия</button>
+            <button>Ужасы</button>
+            <button>Фантастика</button>
+            <button>Боевик</button>
+            <button>Приключения</button>
+            <button>Анимация</button>
+            <button>Документальное</button>
+            <button>Нуар</button>
+            <button>Мелодрама</button>
+            <button>Военное</button>
+            <button onclick="checkAge()">18+</button>
+        </div>
+
+        <!-- Сортировка -->
+        <div class="sort">
+            <select>
+                <option>По популярности</option>
+                <option>По году</option>
+                <option>По рейтингу</option>
+                <option>По алфавиту</option>
+            </select>
+        </div>
+
+        <!-- Секция фильмов -->
+        <div class="movies">
+            <!-- Пример карточки фильма -->
+            <div class="movie-card">
+                <img src="cover.jpg" alt="Обложка фильма">
+                <h3>Название фильма</h3>
+                <p>Год выпуска
