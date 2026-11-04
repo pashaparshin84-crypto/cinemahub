@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CinemaHub — смотреть и скачивать классики кино бесплатно</title>
+<meta name="description" content="Каталог из 28 000+ легальных полнометражных фильмов в общественном достоянии: просмотр онлайн и скачивание в MP4.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="preconnect" href="https://archive.org">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="wrap topbar-in">
+        <a class="logo" href="#catalog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2 9h20M7 4v5M17 4v5M2 14h20"/>
+            </svg>
+            Cinema<span>Hub</span>
+        </a>
+
+        <form class="search" id="searchForm" role="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+            </svg>
+            <input id="search" type="search" placeholder="Поиск по 28 000 фильмов: Чаплин, нуар, фантастика…" autocomplete="off" aria-label="Поиск фильмов">
+        </form>
+
+        <nav class="nav" aria-label="Основное меню">
+            <a href="#catalog" class="nav-link active" data-nav="catalog">Каталог</a>
+            <a href="#new" class="nav-link" data-nav="new">Новинки</a>
+            <a href="#favorites" class="nav-link" data-nav="favorites">★ Избранное</a>
+            <a href="#history" class="nav-link" data-nav="history">История</a>
+            <a href="#adult" class="nav-link nav-adult" data-nav="adult">🔞 18+</a>
+        </nav>
+    </div>
+</header>
+
+<div id="catalogView">
+<div id="intro">
+<!-- HERO -->
+<section class="hero" id="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-fade"></div>
+    <div class="wrap hero-in">
+        <p class="eyebrow">Полностью легально · общественное достояние</p>
+        <h1 class="hero-title" id="heroTitle">Загружаем каталог…</h1>
+        <div class="hero-meta" id="heroMeta"></div>
+        <p class="hero-desc" id="heroDesc">Фильмы подкачиваются напрямую из открытой библиотеки Internet Archive.</p>
+        <div class="hero-actions">
+            <a class="btn primary" id="heroWatch" href="#">
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                Смотреть
+            </a>
+            <button class="btn ghost" id="heroInfo">О фильме</button>
+        </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 360 360" fill="none">
+            <defs>
+                <linearGradient id="gReel" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#a29bfe"/><stop offset="1" stop-color="#6c5ce7"/>
+                </linearGradient>
+                <linearGradient id="gBeam" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#fdcb6e" stop-opacity=".55"/><stop offset="1" stop-color="#fdcb6e" stop-opacity="0"/>
+                </linearGradient>
+            </defs>
+            <!-- луч проектора -->
+            <polygon points="150,190 360,110 360,300" fill="url(#gBeam)"/>
+            <!-- катушки -->
+            <g class="reel-spin" style="transform-origin:110px 110px">
+                <circle cx="110" cy="110" r="70" stroke="url(#gReel)" stroke-width="10"/>
+                <circle cx="110" cy="110" r="12" fill="url(#gReel)"/>
+                <circle cx="110" cy="68" r="16" fill="#1a1a28" stroke="#a29bfe" stroke-width="3"/>
+                <circle cx="146" cy="131" r="16" fill="#1a1a28" stroke="#a29bfe" stroke-width="3"/>
+                <circle cx="74" cy="131" r="16" fill="#1a1a28" stroke="#a29bfe" stroke-width="3"/>
+            </g>
+            <g class="reel-spin" style="transform-origin:200px 120px">
+                <circle cx="200" cy="120" r="44" stroke="url(#gReel)" stroke-width="8"/>
+                <circle cx="200" cy="120" r="8" fill="url(#gReel)"/>
+                <circle cx="200" cy="94" r="10" fill="#1a1a28" stroke="#a29bfe" stroke-width="2.5"/>
+                <circle cx="222" cy="133" r="10" fill="#1a1a28" stroke="#a29bfe" stroke-width="2.5"/>
+                <circle cx="178" cy="133" r="10" fill="#1a1a28" stroke="#a29bfe" stroke-width="2.5"/>
+            </g>
+            <!-- корпус проектора -->
+            <rect x="60" y="175" width="120" height="70" rx="14" fill="#222235" stroke="#6c5ce7" stroke-width="3"/>
+            <circle cx="160" cy="210" r="16" fill="#0b0b10" stroke="#fdcb6e" stroke-width="4"/>
+            <rect x="80" y="192" width="44" height="8" rx="4" fill="#6c5ce7"/>
+            <rect x="80" y="208" width="30" height="8" rx="4" fill="#3d3a63"/>
+            <path d="M85 245 L70 300 M155 245 L170 300" stroke="#3d3a63" stroke-width="6" stroke-linecap="round"/>
+            <!-- плёнка -->
+            <path d="M20 330 Q120 270 240 320 T360 300" stroke="#6c5ce7" stroke-width="22" opacity=".35"/>
+            <path d="M20 330 Q120 270 240 320 T360 300" stroke="#0b0b10" stroke-width="6" stroke-dasharray="8 10" opacity=".8"/>
+            <!-- звёзды -->
+            <path d="M300 50 l5 12 12 5 -12 5 -5 12 -5 -12 -12 -5 12 -5z" fill="#fdcb6e"/>
+            <path d="M260 210 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#a29bfe"/>
+            <path d="M330 170 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5 -6 -6 -2.5 6 -2.5z" fill="#fff" opacity=".7"/>
+        </svg>
+    </div>
+    <div class="dots" id="heroDots"></div>
+</section>
+
+<!-- ПРЕИМУЩЕСТВА С ИЛЛЮСТРАЦИЯМИ -->
+<section class="wrap features" aria-label="Возможности">
+    <div class="feature">
+        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <rect x="6" y="12" width="52" height="34" rx="6" fill="#222235" stroke="#6c5ce7" stroke-width="3"/>
+            <polygon points="27,21 41,29 27,37" fill="#a29bfe"/>
+            <path d="M22 54h20M32 46v8" stroke="#6c5ce7" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div><h3>Смотрите онлайн</h3><p>Видео стримится прямо с серверов архива, без рекламы и регистрации.</p></div>
+    </div>
+    <div class="feature">
+        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path d="M14 40v10a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4V40" stroke="#6c5ce7" stroke-width="3" stroke-linecap="round"/>
+            <path d="M32 10v30M20 28l12 12 12-12" stroke="#fdcb6e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div><h3>Скачивайте в MP4</h3><p>Выбирайте качество и сохраняйте фильм себе — файлы в открытом доступе.</p></div>
+    </div>
+    <div class="feature">
+        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path d="M14 22h36l-4 34H18z" fill="#222235" stroke="#6c5ce7" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M22 22l2 34M42 22l-2 34M32 22v34" stroke="#3d3a63" stroke-width="2"/>
+            <circle cx="22" cy="17" r="6" fill="#fdcb6e"/><circle cx="32" cy="13" r="7" fill="#fff3cd"/>
+            <circle cx="42" cy="17" r="6" fill="#fdcb6e"/><circle cx="27" cy="20" r="5" fill="#fff3cd"/>
+            <circle cx="37" cy="20" r="5" fill="#fdcb6e"/>
+        </svg>
+        <div><h3>28 000+ фильмов</h3><p>Классика Голливуда, немое кино, нуар и вестерны — всё легально.</p></div>
+    </div>
+</section>
+</div><!-- /#intro -->
+
+<main class="wrap main">
+    <!-- НОВИНКИ -->
+    <section class="new-section hidden" id="newSection" aria-label="Новинки">
+        <div class="new-head">
+            <h2 class="section-title">🆕 Новинки</h2>
+            <div class="new-arrows">
+                <button type="button" id="newPrev" aria-label="Назад">‹</button>
+                <button type="button" id="newNext" aria-label="Вперёд">›</button>
+            </div>
+        </div>
+        <div class="new-row" id="newRow"></div>
+    </section>
+
+    <!-- ФИЛЬТРЫ -->
+    <section class="toolbar" id="toolbar">
+        <div class="chips" id="chips">
+            <button class="chip-btn active" data-genre="">Все жанры</button>
+            <button class="chip-btn" data-genre="Drama">Драма</button>
+            <button class="chip-btn" data-genre="Comedy">Комедия</button>
+            <button class="chip-btn" data-genre="Horror">Ужасы</button>
+            <button class="chip-btn" data-genre="Sci-Fi">Фантастика</button>
+            <button class="chip-btn" data-genre="Action">Боевик</button>
+            <button class="chip-btn" data-genre="Adventure">Приключения</button>
+            <button class="chip-btn" data-genre="Animation">Анимация</button>
+            <button class="chip-btn" data-genre="Documentary">Документальное</button>
+            <button class="chip-btn" data-genre="Film-Noir">Нуар</button>
+            <button class="chip-btn" data-genre="Romance">Мелодрама</button>
+            <button class="chip-btn" data-genre="War">Военное</button>
+            <button class="chip-btn" data-genre="Western">Вестерн</button>
+            <button class="chip-btn" data-genre="Mystery">Детектив</button>
+            <button class="chip-btn" data-genre="Crime">Криминал</button>
+            <button class="chip-btn" data-genre="Thriller">Триллер</button>
+            <a class="chip-btn chip-adult" href="#adult">🔞 18+</a>
+        </div>
+
+        <div class="toolbar-right">
+            <span class="counter" id="counter"></span>
+            <label class="sort-label" for="sort">Сортировка
+                <select id="sort">
+                    <option value="popular">Популярные</option>
+                    <option value="newest">Год: новые сначала</option>
+                    <option value="oldest">Год: старые сначала</option>
+                    <option value="title">По названию</option>
+                </select>
+            </label>
+        </div>
+    </section>
+
+    <div class="adult-note hidden" id="adultNote">
+        <span class="age-chip">18+</span>
+        <p>Фильмы для взрослых: хоррор, насилие, криминал и тяжёлые темы. Откровенный эротический контент в раздел не попадает.</p>
+    </div>
+
+    <div class="status hidden" id="status">
+        <span class="spinner"></span> Подкачиваем данные из Internet Archive…
+    </div>
+
+    <!-- СЕТКА -->
+    <section class="grid" id="grid"></section>
+
+    <div class="empty hidden" id="empty">
+        <p>По запросу ничего не нашлось.</p>
+        <span>Попробуйте другой жанр или более короткий запрос.</span>
+    </div>
+
+    <div class="load-wrap hidden" id="loadWrap">
+        <button class="btn ghost" id="more">Показать ещё 24 фильма</button>
+    </div>
+</main>
+
+</div><!-- /#catalogView -->
+
+<!-- ЭКРАН ПЛЕЕРА -->
+<main class="wrap main player-view hidden" id="playerView">
+    <div class="player-top">
+        <a class="btn ghost" id="backLink" href="#catalog">← Назад в каталог</a>
+    </div>
+
+    <div class="player-wrap">
+        <div class="stage">
+            <video id="player" controls preload="metadata" playsinline poster="">
+                Ваш браузер не поддерживает HTML5 Video.
+            </video>
+        </div>
+        <div class="player-bar">
+            <div class="qualities" id="qualities"></div>
+            <div class="player-tools">
+                <button class="tool-btn" id="pipBtn" title="Картинка в картинке">PiP</button>
+                <button class="tool-btn" id="fsBtn" title="Полный экран">Полный экран</button>
+                <a class="tool-btn" id="dlBtn" href="#" target="_blank" rel="noopener" title="Скачать">Скачать</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="info">
+        <div class="info-main">
+            <h1 class="info-title" id="infoTitle">Загрузка…</h1>
+            <p class="orig-title" id="infoOrig"></p>
+            <div class="info-meta" id="infoMeta"></div>
+            <div class="info-genres" id="infoGenres"></div>
+            <p class="info-desc" id="infoDesc"></p>
+            <div class="info-actions" id="infoActions">
+                <button class="btn ghost" id="favBtn">☆ В избранное</button>
+            </div>
+        </div>
+        <aside class="info-side">
+            <img class="info-poster" id="infoPoster" src="" alt="" loading="lazy"
+                 onerror="this.classList.add('no-img')">
+            <div class="info-stats" id="infoStats"></div>
+        </aside>
+    </div>
+
+    <section class="related">
+        <div class="related-head">
+            <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                <rect x="4" y="14" width="56" height="36" rx="4" fill="#222235" stroke="#6c5ce7" stroke-width="3"/>
+                <path d="M4 22h56M4 42h56" stroke="#6c5ce7" stroke-width="2"/>
+                <polygon points="27,26 39,32 27,38" fill="#fdcb6e"/>
+            </svg>
+            <h2 class="section-title">Похожие фильмы</h2>
+        </div>
+        <div class="grid" id="relatedGrid"></div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="wrap">
+        <p><strong>CinemaHub</strong> — демонстрационный плеер поверх открытой библиотеки
+            <a href="https://archive.org/details/feature_films" target="_blank" rel="noopener">Internet Archive · Feature Films</a>.</p>
+        <p>Все материалы находятся в общественном достоянии или распространяются по свободным лицензиям.
+            Данные и видео подкачиваются напрямую с серверов archive.org.</p>
+    </div>
+</footer>
+
+<!-- МОДАЛКА -->
+<div class="modal hidden" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-panel"><div id="modalBody"></div></div>
+</div>
+
+<!-- ПОДТВЕРЖДЕНИЕ ВОЗРАСТА -->
+<div class="modal hidden" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
+    <div class="modal-backdrop"></div>
+    <div class="modal-panel age-panel">
+        <div class="age-badge">18+</div>
+        <h2 id="ageTitle">Контент для взрослых</h2>
+        <p>В этом разделе собраны фильмы со сценами насилия, пугающими сценами и тяжёлыми темами.
+           Они предназначены только для совершеннолетних зрителей.</p>
+        <div class="age-actions">
+            <button class="btn primary" id="ageYes">Мне есть 18 лет</button>
+            <button class="btn ghost" id="ageNo">Вернуться в каталог</button>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
