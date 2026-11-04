@@ -1,0 +1,121 @@
+/* CinemaHub — Avengers-style theme (original artwork, no Marvel assets) */
+:root{
+  --bg:#04060d;--bg2:#0a1022;--bg3:#101a36;--bg4:#1b2750;
+  --tx:#eef2ff;--tx2:#a9b4d6;--tx3:#6c789e;
+  --accent:#d62839;--accent2:#ffc857;--accent-glow:rgba(214,40,57,.38);
+  --danger:#ff2e63;--warn:#ffc857;
+  --blue:#2a6df4;--gold:#ffc857;--red:#d62839;
+  --r:6px;--r2:10px;--r3:16px;
+  --cut:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+}
+body{background:var(--bg);font-family:Manrope,"Segoe UI",system-ui,sans-serif}
+
+/* Космос: звёзды + сетка + свечение */
+body::before{content:"";position:fixed;inset:-50%;z-index:-2;pointer-events:none;
+  background:
+   radial-gradient(1.4px 1.4px at 20px 30px,#fff,transparent),
+   radial-gradient(1px 1px at 90px 120px,#ffe9a8,transparent),
+   radial-gradient(1.6px 1.6px at 160px 60px,#9db8ff,transparent),
+   radial-gradient(1px 1px at 230px 180px,#fff,transparent),
+   radial-gradient(1.2px 1.2px at 300px 90px,#ffb3bb,transparent);
+  background-size:340px 240px;opacity:.55;animation:drift 120s linear infinite}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(60% 50% at 85% -10%,rgba(214,40,57,.28),transparent 70%),
+   radial-gradient(55% 45% at 0% 20%,rgba(42,109,244,.26),transparent 70%),
+   radial-gradient(40% 35% at 50% 110%,rgba(255,200,87,.14),transparent 70%),
+   linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:auto,auto,auto,48px 48px,48px 48px}
+@keyframes drift{to{transform:translate3d(340px,240px,0)}}
+
+/* Шапка */
+.topbar{background:rgba(5,8,18,.88);border-bottom:1px solid rgba(255,200,87,.25);
+  box-shadow:0 1px 0 rgba(214,40,57,.5),0 8px 30px rgba(0,0,0,.5)}
+.topbar::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+  background:linear-gradient(90deg,transparent,var(--red),var(--gold),var(--blue),transparent)}
+.logo{letter-spacing:.14em;text-transform:uppercase;font-weight:800}
+.logo svg{color:var(--gold);filter:drop-shadow(0 0 8px rgba(255,200,87,.7))}
+.logo span{color:var(--red);text-shadow:0 0 14px var(--accent-glow)}
+.search{border-radius:var(--r);background:rgba(16,26,54,.9);border-color:rgba(255,200,87,.18)}
+.search:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(255,200,87,.2)}
+.nav-link{text-transform:uppercase;letter-spacing:.08em;font-size:.76rem;border-radius:var(--r)}
+.nav-link:hover{background:rgba(214,40,57,.14);color:#fff}
+.nav-link.active{color:var(--gold);background:rgba(255,200,87,.1);box-shadow:inset 0 -2px 0 var(--gold)}
+
+/* Hero */
+.hero{border-bottom:1px solid rgba(255,200,87,.2)}
+.hero-bg{filter:brightness(.38) saturate(1.1) contrast(1.1)}
+.hero-fade{background:
+  linear-gradient(to right,rgba(4,6,13,.97) 0,rgba(4,6,13,.72) 55%,rgba(4,6,13,.25) 100%),
+  linear-gradient(to top,var(--bg),transparent 35%)}
+.hero-in::before{background:repeating-linear-gradient(180deg,var(--red) 0 14px,transparent 14px 30px);opacity:.8}
+.eyebrow{background:linear-gradient(90deg,var(--red),#8f1424);clip-path:var(--cut);border-radius:0;
+  padding:6px 16px;letter-spacing:.14em;box-shadow:0 0 18px var(--accent-glow)}
+.hero-title{text-transform:uppercase;letter-spacing:.02em;
+  background:linear-gradient(180deg,#fff 20%,var(--gold));-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 18px rgba(214,40,57,.45))}
+.hero-art{filter:hue-rotate(110deg) saturate(1.3) drop-shadow(0 20px 40px rgba(214,40,57,.45))}
+.dot.active{background:var(--gold)}
+
+/* Кнопки */
+.btn{border-radius:0;clip-path:var(--cut);text-transform:uppercase;letter-spacing:.08em;font-weight:800;font-size:.8rem}
+.btn.primary{background:linear-gradient(135deg,var(--red),#9b1b2a);color:#fff;box-shadow:0 0 24px var(--accent-glow)}
+.btn.primary:hover{background:linear-gradient(135deg,#ff3b4e,var(--red));transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
+.btn.ghost{background:rgba(42,109,244,.12);border-color:rgba(42,109,244,.5);color:#cfe0ff}
+.btn.ghost:hover{background:rgba(42,109,244,.28);color:#fff}
+
+/* Преимущества */
+.feature{background:linear-gradient(160deg,rgba(10,16,34,.95),rgba(16,26,54,.9));
+  border:1px solid rgba(255,200,87,.2);border-radius:0;clip-path:var(--cut);box-shadow:none;transition:transform .25s,border-color .25s}
+.feature:hover{transform:translateY(-4px);border-color:var(--gold)}
+.feature svg{filter:hue-rotate(110deg) saturate(1.3) drop-shadow(0 0 8px rgba(255,200,87,.4))}
+.feature h3{text-transform:uppercase;letter-spacing:.06em;color:var(--gold)}
+
+/* Заголовки секций */
+.section-title{text-transform:uppercase;letter-spacing:.08em;position:relative;padding-left:18px}
+.section-title::before{content:"";position:absolute;left:0;top:.15em;bottom:.15em;width:5px;
+  background:linear-gradient(180deg,var(--red),var(--gold));box-shadow:0 0 12px var(--accent-glow)}
+
+/* Фильтры */
+.chip-btn{border-radius:0;clip-path:var(--cut);padding:8px 18px;background:rgba(16,26,54,.9);
+  border-color:rgba(255,255,255,.08);text-transform:uppercase;letter-spacing:.06em;font-size:.72rem}
+.chip-btn:hover{color:#fff;background:rgba(42,109,244,.25)}
+.chip-btn.active{background:linear-gradient(135deg,var(--red),#8f1424);border-color:var(--red);color:#fff;box-shadow:0 0 16px var(--accent-glow)}
+.chip-adult{border-color:rgba(255,46,99,.5);color:var(--danger)}
+.sort-label select{border-radius:var(--r);background:var(--bg3);border-color:rgba(255,200,87,.2)}
+.counter{color:var(--gold)}
+
+/* Карточки */
+.card-poster{border-radius:0;clip-path:var(--cut);border:1px solid rgba(255,200,87,.18);
+  background:var(--bg3);transition:transform .3s,box-shadow .3s,border-color .3s}
+.card-poster:hover{transform:translateY(-8px) scale(1.02);border-color:var(--gold);
+  box-shadow:0 14px 40px rgba(214,40,57,.4),0 0 0 1px var(--gold)}
+.card-hover{background:linear-gradient(to top,rgba(4,6,13,.85),rgba(214,40,57,.25))}
+.play-dot{background:radial-gradient(circle,#ff5566,var(--red));box-shadow:0 0 30px var(--red),0 0 0 6px rgba(214,40,57,.25)}
+.card-year{background:rgba(4,6,13,.8);border:1px solid rgba(255,200,87,.4);border-radius:var(--r);color:var(--gold)}
+.card-title{letter-spacing:.01em}
+.card-poster.no-img{background:linear-gradient(140deg,#0e1a3a,#2a0f1a 55%,#07091a)}
+
+/* Плеер, модалки */
+.player-wrap,.modal-panel{border:1px solid rgba(255,200,87,.25);border-radius:var(--r2);
+  box-shadow:0 0 0 1px rgba(214,40,57,.2),0 20px 60px rgba(0,0,0,.6)}
+.modal-backdrop{background:rgba(2,3,8,.82)}
+.quality-btn,.tool-btn{border-radius:var(--r);background:rgba(16,26,54,.9)}
+.quality-btn.active{background:linear-gradient(135deg,var(--red),#8f1424);border-color:var(--red)}
+.tool-btn:hover{border-color:var(--gold);color:var(--gold)}
+.chip{border-radius:var(--r)}
+.age-badge{box-shadow:0 0 0 6px rgba(255,46,99,.18),0 0 30px rgba(255,46,99,.4)}
+.new-arrows button:hover{background:var(--red);border-color:var(--red)}
+.spinner{border-top-color:var(--gold)}
+.toast{border-color:var(--gold);border-radius:var(--r)}
+
+/* Подвал */
+.footer{background:linear-gradient(to top,rgba(10,16,34,.95),transparent);border-top:1px solid rgba(255,200,87,.25)}
+.footer a{color:var(--gold)}
+
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--red),var(--bg4))}
+:focus-visible{outline-color:var(--gold)}
+
+@media (prefers-reduced-motion:reduce){body::before{animation:none}}
+@media (max-width:700px){body::after{background-size:auto,auto,auto,32px 32px,32px 32px}}
